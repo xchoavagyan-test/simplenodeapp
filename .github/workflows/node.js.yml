@@ -5,6 +5,7 @@ on:
         - '**.js'
 jobs:
    build:
+     name: my job
      runs-on: ${{ matrix.os}}
      strategy:
        matrix:
