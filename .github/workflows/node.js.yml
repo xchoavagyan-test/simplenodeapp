@@ -26,3 +26,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://nmp.pkg.github.com/
+      - name: my fourth step
+        uses: actions/first-interaction@v1
+        with:
+            repo-token: ${{ secrets.GITHUB.TOKEN}}
+            issue-message: "Issue Message"
+            ps-message: "Pr Message"
