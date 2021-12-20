@@ -1,18 +1,13 @@
 name: build
-
 on: push
-
 jobs:
   build:
-
     name: my job
     runs-on: ${{ matrix.os }}
-    
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os: [ubuntu-latest]
+        node-version: [12]
         exclude:
           - os: macos-latest
             node-version: 12.x
@@ -23,3 +18,6 @@ jobs:
           FIRST_NAME: Xcho
           LAST_NAME: Avagyan
         run: echo $MY_VAR $FIRST_NAME $LAST_NAME
+      - name: my second job
+        if: success()
+        run: echo "The step finnished"
