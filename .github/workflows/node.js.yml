@@ -21,3 +21,8 @@ jobs:
       - name: my second job
         if: success()
         run: echo "The step finnished"
+      - name: my third step
+        uses: actions/checkout@v1
+        with:
+          node-version: 12
+          registry-url: https://nmp.pkg.github.com/
