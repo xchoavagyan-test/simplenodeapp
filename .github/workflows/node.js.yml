@@ -1,9 +1,6 @@
 name: build
 
-on:
-  push:
-    paths:
-      - '**.js'
+on: push
 
 jobs:
   build:
@@ -19,13 +16,10 @@ jobs:
         exclude:
           - os: macos-latest
             node-version: 12.x
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+      - name: my first step 
+        env:
+          MY_VAR: "Hello! My name is" 
+          FIRST_NAME: Xcho
+          LAST_NAME: Avagyan
+        run: echo $MY_VAR $FIRST_NAME $LAST_NAME
